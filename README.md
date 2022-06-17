@@ -16,116 +16,116 @@ Instructions to the candidate:
 3. Do take the time to clearly define the data models and the API interfaces.           
 
 
-###APIs
-POST /register {Driver Profile}
-PATCH /active {isActive: true}
-POST /drivers/{driverId}/document/{docName}
-GET /drivers/{driverId}/bgv
-POST /drivers/{driverId}/ship-device
-
-### Data Model:
-
-class UserProfile {
-    String userId;
-    String name;
-    String age;
-    String mobileNumber;
-    String emailId;
-    Address address;
-    Date creationDate;
-    PaymentProfile paymentProfile;
-    LoginProfile loginProfile; 
-}
-
-class LoginProfile {
-    String loginId;
-    String password;
-}
-
-class PaymentProfile {
-    String panId;
-    List<Account> accounts;
-}
-
-class Account {
-    String accountId;
-    PaymentSourceType type;
-    Double currentBalance;   
-}
-
-enum PaymentSourceType {
-    DEBIT_CARD, CREDIT_CARD, UPI, DIGITAL_WALLET;
-}
-
-class Address {
-    String houseNumber;
-    String street;
-    String city;
-    String state;
-    String country;
-    String pinCode;
-}
-
-class DriverProfile extends UserProfile {
-    List<DocumentDetail> uploadedDocuments;
-    boolean isBackgroundVerified;
-    boolean isAccountActivated; // if (BGV && cab.isCertified)    
-}
-
-class DocumentDetail {
-    String documentUrl; //byte[] documentBlob;
-    DocumentType documentType;
-    boolean isVerified;
-}
-
-enum DocumentType {
-    PROFILE_PHOTO, 
-    DRIVING_LICENSE, 
-    PAN_CARD, 
-    VEHICLE_REGISTRATION_CERTIFICATE, 
-    VEHICLE_HEALTH_CERTIFICATE, 
-    VEHICLE_INSURANCE, 
-    VEHICLE_PERMIT;
-}
-
-
-class Cab {
-    String id;
-    Trip currentTrip;
-    Location currentLocation;
-    Vehicle vehicle;
-    boolean isAvailable;
-    boolean isCertified; // if it is equiped with all necessary equipments
-    CabStatus cabStatus;
-    String registrationId;
-}
-
-class Vehicle {
-    String name;
-    Color color;
-    String brandName;
-    String modelName;
-    CarType type;
-}
-
-enum CabStatus {
-    OFFLINE, AVAILABLE, BOOKED;
-}
-
-enum Color {
-    RED, BLUE, GREEN, WHITE;
-}
-
-enum CarType {
-    SEDAN, SUV, HATCHBACK;
-}
-
-class Trip {
-    
-}
-
-class Location {
-    Double longitude;
-    Double latitude;
-}
-
+###APIs         
+POST /register {Driver Profile}         
+PATCH /active {isActive: true}          
+POST /drivers/{driverId}/document/{docName}         
+GET /drivers/{driverId}/bgv         
+POST /drivers/{driverId}/ship-device            
+            
+### Data Model:         
+            
+class UserProfile {         
+    String userId;          
+    String name;            
+    String age;         
+    String mobileNumber;            
+    String emailId;         
+    Address address;            
+    Date creationDate;          
+    PaymentProfile paymentProfile;          
+    LoginProfile loginProfile;          
+}           
+            
+class LoginProfile {            
+    String loginId;         
+    String password;            
+}           
+            
+class PaymentProfile {          
+    String panId;           
+    List<Account> accounts;         
+}           
+            
+class Account {         
+    String accountId;           
+    PaymentSourceType type;         
+    Double currentBalance;              
+}           
+            
+enum PaymentSourceType {            
+    DEBIT_CARD, CREDIT_CARD, UPI, DIGITAL_WALLET;           
+}           
+            
+class Address {         
+    String houseNumber;         
+    String street;          
+    String city;            
+    String state;           
+    String country;         
+    String pinCode;         
+}           
+            
+class DriverProfile extends UserProfile {           
+    List<DocumentDetail> uploadedDocuments;         
+    boolean isBackgroundVerified;           
+    boolean isAccountActivated; // if (BGV && cab.isCertified)              
+}           
+            
+class DocumentDetail {          
+    String documentUrl; //byte[] documentBlob;          
+    DocumentType documentType;          
+    boolean isVerified;         
+}           
+            
+enum DocumentType {         
+    PROFILE_PHOTO,          
+    DRIVING_LICENSE,            
+    PAN_CARD,           
+    VEHICLE_REGISTRATION_CERTIFICATE,           
+    VEHICLE_HEALTH_CERTIFICATE,             
+    VEHICLE_INSURANCE,          
+    VEHICLE_PERMIT;         
+}           
+            
+            
+class Cab {         
+    String id;          
+    Trip currentTrip;           
+    Location currentLocation;           
+    Vehicle vehicle;            
+    boolean isAvailable;            
+    boolean isCertified; // if it is equiped with all necessary equipments          
+    CabStatus cabStatus;            
+    String registrationId;          
+}           
+            
+class Vehicle {         
+    String name;            
+    Color color;            
+    String brandName;           
+    String modelName;           
+    CarType type;           
+}           
+            
+enum CabStatus {            
+    OFFLINE, AVAILABLE, BOOKED;         
+}           
+            
+enum Color {            
+    RED, BLUE, GREEN, WHITE;            
+}           
+            
+enum CarType {          
+    SEDAN, SUV, HATCHBACK;          
+}           
+            
+class Trip {            
+                
+}           
+            
+class Location {            
+    Double longitude;           
+    Double latitude;            
+}           
+            
