@@ -1,0 +1,11 @@
+package com.intuit.driver.model;
+
+public enum DocumentType {
+    PROFILE_PHOTO,
+    DRIVING_LICENSE,
+    PAN_CARD,
+    VEHICLE_REGISTRATION_CERTIFICATE,
+    VEHICLE_HEALTH_CERTIFICATE,
+    VEHICLE_INSURANCE,
+    VEHICLE_PERMIT;
+}

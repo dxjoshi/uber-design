@@ -69,10 +69,9 @@ class Address {
 
 class Driver extends User {
     DriverProfile driverProfile;
-    
 }            
             
-class DriverProfile extends UserProfile {           
+class DriverProfile {           
     List<DocumentDetail> uploadedDocuments;         
     boolean isBackgroundVerified;           
     boolean isAccountActivated; // if (BGV && cab.isCertified)              
