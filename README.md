@@ -66,6 +66,12 @@ class Address {
     String pinCode;         
 }           
             
+
+class Driver extends User {
+    DriverProfile driverProfile;
+    
+}            
+            
 class DriverProfile extends UserProfile {           
     List<DocumentDetail> uploadedDocuments;         
     boolean isBackgroundVerified;           
@@ -97,7 +103,6 @@ class Cab {
     boolean isAvailable;            
     boolean isCertified; // if it is equiped with all necessary equipments          
     CabStatus cabStatus;            
-    String registrationId;          
 }           
             
 class Vehicle {         
@@ -106,6 +111,7 @@ class Vehicle {
     String brandName;           
     String modelName;           
     CarType type;           
+    String registrationId;          
 }           
             
 enum CabStatus {            
@@ -121,8 +127,18 @@ enum CarType {
 }           
             
 class Trip {            
-                
+    TripStatus tripStatus;
+    Double charges;
+    Location source;
+    Location destination;
+    Cab cab;
+    String driverId;
+    String driverName;
 }           
+
+enum TripStatus {
+    IN_PROGRESS, COMPLETED;
+}
             
 class Location {            
     Double longitude;           
