@@ -4,6 +4,7 @@ import com.intuit.driver.model.UserProfile;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class DriverAccountsService {
 
@@ -31,4 +32,11 @@ public class DriverAccountsService {
 
     }
 
+    public void addUser(String userId, UserProfile userProfile) {
+        if (!userProfileMap.containsKey(userId)) {
+            userProfile.setUserId(userId);
+        }
+        userProfileMap.put(userId, userProfile);
+
+    }
 }
